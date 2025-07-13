@@ -10,5 +10,7 @@
     <main>
         @yield('content')      {{-- 各ページごとにメイン部分を差し込む --}}
     </main>
+    
+    @yield('js')
 </body>
 </html>
