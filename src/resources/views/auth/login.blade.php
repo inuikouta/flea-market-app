@@ -3,6 +3,7 @@
 
 @section('css')
     <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/partials/header.css') }}">
     <link rel="stylesheet" href="{{ asset('css/auth/login.css') }}">
 @endsection
 

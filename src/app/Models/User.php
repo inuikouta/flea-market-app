@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -41,4 +42,27 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * プロフィール新規作成時
+     *
+     * 
+     */
+    public static function updateProfile($request)
+    {
+        $userId = auth()->id();
+        DB::table('users')
+            ->where('id', $userId)
+            ->update([
+                'name' => $request['user-name'],
+                'postal_code' => $request['post-code'],
+                'address' => $request['address'],
+                'building_name' => $request['building'],
+                'image_path' => $request['image_path'],
+            ]);
+
+
+
+        // dd($request->all());
+    }
 }

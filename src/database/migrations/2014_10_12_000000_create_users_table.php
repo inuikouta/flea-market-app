@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('email', 255)->unique(); // not null, unique
             $table->string('password', 255); // not null
             $table->string('postal_code', 20)->nullable();
+            $table->string('image_path', 255)->nullable(); // 画像のパス
             $table->string('address', 255)->nullable();
             $table->string('building_name', 255)->nullable();
             $table->timestamp('created_at')->useCurrent(); // not null (by default)

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends Controller
 {
@@ -14,6 +15,8 @@ class RegisterController extends Controller
      */
     public function create()
     {
+        $user = auth()->user();
+        dd($user);
         // ユーザー登録画面を表示
         return view('auth.register');
     }
