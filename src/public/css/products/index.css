@@ -1,0 +1,112 @@
+.product {
+    margin-top: 50px;
+}
+
+.product__tabs {
+    border-bottom: 2px solid #5F5F5F;
+}
+
+.product__tabs__tab-buttons {
+    margin-left: 60px;
+    height: 100px;
+}
+
+.product__tabs__tab-button {
+    padding: 40px 20px;
+    font-size: 24px;
+    font-weight: 700;
+    font-family: Inter, sans-serif;
+    cursor: pointer;
+    background-color: transparent; /* 透明*/
+    border: none;
+    margin-right: 20px;
+    cursor: default;
+    pointer-events: none; /* ボタン全体はクリック不可 */
+}
+
+.product__tabs__tab-button--active {
+    color: #FF0000;
+}
+
+.product__tabs__tab-button__text {
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+/**
+ * 商品一覧のスタイル
+ */
+.product__tab-content {
+    display: none; /* 普段は隠す */
+}
+
+.product__tab-content--active {
+    display: flex; /* アクティブなタブのみ表示 */
+    flex-wrap: wrap;         /* 横がいっぱいになったら自動で折り返す！ */
+    gap: 66px;
+    padding: 66px;
+}
+
+.product-group {
+    width: calc(25% - 50px);
+    text-decoration: none;
+}
+
+.product-group__image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    background: #eee;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;    /* 横方向の中央寄せ */
+    align-items: center;        /* 縦方向の中央寄せ */
+}
+
+.product-group__image img {
+    height: 100%;        /* 高さを枠いっぱいに */
+    width: auto;         /* 横は自動（比率を保つ） */
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+}
+
+.product-group__name {
+    font-size: 20px;
+    font-weight: 400;
+    margin-top: 10px;
+    color: #000000;
+}
+
+/* 850px以下のときだけgapを変更する */
+@media (max-width: 850px) {
+    .product {
+        margin-top: 10px;
+    }
+
+    .product__tabs__tab-buttons {
+        margin-left: 30px;
+        height: 80px;
+    }
+
+    .product__tabs__tab-button {
+        padding: 40px 20px;
+        font-size: 20px;
+        font-weight: 700;
+        font-family: Inter, sans-serif;
+        cursor: pointer;
+        background-color: transparent; /* 透明*/
+        border: none;
+        margin-right: 20px;
+        cursor: default;
+        pointer-events: none; /* ボタン全体はクリック不可 */
+    }
+
+    .product__tab-content--active {
+        gap: 20px;      /* ここでgapの余白を小さくする！ */
+        padding: 20px;  /* 必要ならpaddingも小さくできる */
+    }
+    .product-group {
+        width: calc((100% - (20px * 3)) / 4); /* gap値に合わせて幅も調整する場合 */
+    }
+}

@@ -8,7 +8,6 @@ imageInput.addEventListener('change', function(e) {
         reader.onload = function(event) {
             previewImage.src = event.target.result;
             previewImage.style.display = 'block';
-            console.log('test');
         };
         reader.readAsDataURL(file);
     }

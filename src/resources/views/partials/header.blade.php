@@ -25,7 +25,7 @@
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 @csrf
             </form>
-            
+
             <!-- ↓ 見た目はリンクだけど、クリックすると上のフォームが送信される -->
             <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="header__menu__item">
                 ログアウト
