@@ -33,3 +33,10 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/products', [ProductController::class, 'index'])->name('products.index');
 });
+
+// 商品出品画面
+Route::middleware('auth')->group(function () {
+    Route::get('/sell', function () {
+        return view('products.create');
+    });
+});

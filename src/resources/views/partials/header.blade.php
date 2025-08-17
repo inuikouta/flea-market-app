@@ -32,7 +32,7 @@
             </a>
         @endauth
         <a href="#" class="header__menu__item">マイページ</a>
-        <a href="#" class="header__menu__item">
+        <a href="/sell" class="header__menu__item">
             <div class="header__menu__item__btn">
                 <span class="header__menu__item__btn__text">出品</span>
             </div>

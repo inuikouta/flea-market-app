@@ -1,0 +1,196 @@
+.product-create {
+    max-width: 50%;
+    margin-inline: auto;
+}
+
+.product-create__form-group {
+    margin-bottom: 40px;
+}
+
+/**
+* タイトル
+*/
+.product-create__top {
+    text-align: center;
+    margin-top: 60px;
+}
+
+.product-create__title-h1 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #000000;
+}
+
+/* 見出し2 */
+.product-create__title {
+    border-bottom: #5F5F5F 1px solid;
+    margin-bottom: 60px;
+}
+
+.product-create__title-h2 {
+    font-size: 30px;
+    font-weight: 700;
+    color: #5F5F5F;
+    margin-bottom: 20px;
+}
+
+/**
+* 商品出品フォーム
+*/
+.product-create__form {
+    margin-top: 60px;
+    height: auto;
+}
+
+.product-create__form-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+/* 商品画像 */
+.product-create__image {
+    width: 100%;
+    margin-bottom: 100px;
+}
+
+.product-create__image-wrapper {
+    height: 200px;
+    width: 100%;
+    margin-top: 20px;
+    border: #000000 1px dotted;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.previewImage {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* 比率を保ったまま枠内に収める */
+    display: none; /* ファイル入力を非表示にする */
+}
+
+.product-create__image-input {
+    display: none; /* ファイル入力を非表示にする */
+}
+
+.product-create__image-label {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #ffffff;
+    color: #FF5555;
+    border : 2px solid #FF5555;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+/* カテゴリー */
+.category__form-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.product-create__form-checkbox {
+    display: none;
+}
+
+.category__form-label {
+    display: inline-block;
+    padding: 10px 20px; /* 余白はpaddingだけ */
+    background: #ffffff;
+    color: #FF5555;
+    border: 2px solid #FF5555;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.3s;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.category__form-dummy {
+    display: inline-block;
+    padding: 10px 20px;
+    visibility: hidden; /* 見えないが場所は取る */
+}
+
+/**
+* 商品の状態（selectボックス）
+*/
+.selectbox-3 {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+}
+
+.selectbox-3::after {
+    position: absolute;
+    right: 15px;
+    width: 10px;
+    height: 7px;
+    background-color: #535353;
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    content: '';
+    pointer-events: none;
+}
+
+.selectbox-3 select {
+    width: 100%;
+    appearance: none;
+    height: 45px;
+    padding: .4em calc(.8em + 30px) .4em .8em;
+    border: 1px solid #d0d0d0;
+    border-radius: 3px;
+    background-color: #fff;
+    color: #333333;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.product-create__form-input {
+    width: 100%;
+    padding: 0 15px;
+    height: 50px;
+    font-size: 20px;
+    border: 1px solid #5F5F5F;
+    border-radius: 4px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.product-create__form-textarea {
+    width: 100%;
+    height: 125px;
+    font-size: 20px;
+    padding: 15px;
+    border: 1px solid #5F5F5F;
+    border-radius: 4px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+/**
+* ボタン
+*/
+.product-create__buttons {
+    width: 100%;
+    margin: 80px 0;
+}
+.product-create__form-submit {
+    width: 100%;
+    height: 70px;
+    font-size: 24px;
+    font-weight: 700;
+    background-color: #FF5555;
+    color: #ffffff;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+}
