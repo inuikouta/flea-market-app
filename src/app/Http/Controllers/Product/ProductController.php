@@ -14,4 +14,11 @@ class ProductController extends Controller
         $pageQuery = $request->query('page'); // クエリ取得
         return view('products.index');
     }
+
+    // 商品詳細画面
+    public function show($item_id)
+    {
+        Log::debug($item_id);
+        return view('products.show', ['item_id' => $item_id]);
+    }
 }

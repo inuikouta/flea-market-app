@@ -39,4 +39,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/sell', function () {
         return view('products.create');
     });
+    // 商品詳細画面
+    Route::get('/item/{item_id}', [ProductController::class, 'show'])->name('products.show');
 });

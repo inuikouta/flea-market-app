@@ -27,7 +27,7 @@
     <!-- おすすめ商品 -->
     <div id="recommended-products" class="product__tab-content product__tab-content--active">
         @for($i = 0; $i < 10; $i++)
-        <a href="#" class="product-group">
+        <a href="{{ url('/item/' . $i) }}" class="product-group">
             <div class="product-group__image">
                 <img src="https://placehold.co/300x300" alt="製品Aの外観写真（ダミー）">
             </div>
