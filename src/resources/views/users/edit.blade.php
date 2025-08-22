@@ -2,7 +2,6 @@
 
 @section('title', 'プロフィール編集設定')
 @section('css')
-    <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
     <link rel="stylesheet" href="{{ asset('css/users/edit.css') }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 @endsection

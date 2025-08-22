@@ -96,6 +96,22 @@
     cursor: pointer;
 }
 
+.product-container__buy-btn {
+    display: block; /* または inline-block */
+    width: 100%;
+    height: 56px;
+    background-color: #FF5555;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none; /* リンクの下線を消す */
+    text-align: center; /* 文字を中央寄せ */
+    line-height: 56px; /* 垂直方向の中央寄せ */
+    box-sizing: border-box; /* paddingを含めた幅計算 */
+}
 /**
 * 商品説明のスタイル
 */

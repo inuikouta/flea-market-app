@@ -2,8 +2,6 @@
 @section('title', '商品出品')
 
 @section('css')
-    <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/partials/header.css') }}?v=2">
     <link rel="stylesheet" href="{{ asset('css/products/create.css') }}?v=2">
 @endsection
 
@@ -112,8 +110,5 @@ $categorys = [
 @endsection
 
 @section('js')
-    {{-- jクエリをcdnで追加 --}}
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    {{-- 商品出品ページのJavaScript --}}
     <script src="{{ asset('js/products/create.js') }}"></script>
 @endsection

@@ -1,0 +1,135 @@
+.purchase-container {
+    margin-top: 100px;
+    max-width: 1540px; /* 最大幅 */
+    min-width: 1400px; /* 最小幅 */
+    display: flex;
+    justify-content: space-evenly;
+    margin-inline: auto; /* 中央寄せ */
+}
+
+.container-left {
+    width: 50%;
+}
+
+.container-right {
+    width: 30%;
+}
+
+.container-left__top-group {
+    display: flex;
+    padding-bottom: 60px;
+    margin-bottom: 40px;
+    border-bottom: 1px solid #000000;
+}
+
+.container-left__image {
+    width: 177px;
+    height: 177px;
+    border-radius: 4px;
+    object-fit: contain;
+    background-color: #f8f8f8; /* 余白を目立たなくする */
+    border: 1px solid #e0e0e0; /* 枠線で境界を明確に */
+    cursor: pointer;
+    transition: transform 0.2s; /* ホバー効果 */
+}
+
+.container-left__info {
+    margin-left: 60px;
+    display: flex;
+    flex-direction: column;
+}
+
+.container-left__name {
+    font-size: 30px;
+    font-weight: 700;
+    color: #000000;
+    margin-bottom: 30px;
+}
+
+.container-left__price {
+    font-size: 27px;
+    font-weight: 400;
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+.container-left__group {
+    padding-inline: 30px;
+    padding-bottom: 60px;
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #000000;
+}
+
+.container-left__label {
+    font-size: 20px;
+    font-weight: 700;
+    color: #000000;
+    margin-bottom: 40px;
+}
+
+.container-left__select {
+    width: 265px;
+    height: 31px;
+    margin-left: 50px;
+}
+
+.container-left__header {
+    display: flex;
+    justify-content: space-between;
+    height: 20px;
+    margin-bottom: 40px;
+}
+
+.container-left__link {
+    font-size: 20px;
+    font-weight: 400;
+    color: #0073CC;
+    text-decoration: none;
+}
+
+.container-left__link:hover {
+    text-decoration: underline;
+}
+
+.container-left__address {
+    margin-left: 50px;
+}
+
+.container-left__address-line {
+    font-size: 20px;
+    font-weight: 600;
+    color: #000000;
+    line-height: 1.7;
+}
+
+/*.右側のレイアウト */
+.purchase-table {
+    width: 100%;
+    height: 230px;
+    border-collapse: collapse;
+    border: 1px solid #000000;
+}
+
+.purchase-table__row {
+    border-bottom: 1px solid #000000;
+}
+
+.purchase-table__label,
+.purchase-table__value {
+    padding: 12px 8px;
+    border: none;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.purchase-table__label {
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.purchase-table__value {
+    font-size: 24px;
+    font-weight: 400;
+}

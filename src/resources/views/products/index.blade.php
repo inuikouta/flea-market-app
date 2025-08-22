@@ -2,8 +2,6 @@
 @section('title', '商品一覧画面')
 
 @section('css')
-    <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/partials/header.css') }}?v=2">
     <link rel="stylesheet" href="{{ asset('css/products/index.css') }}">
 @endsection
 
@@ -50,9 +48,7 @@
 @endsection
 
 @section('js')
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script>
-
 $(document).ready(function() {
     // タブのクリックイベント
     $('.product__tabs__tab-button').on('click', function() {

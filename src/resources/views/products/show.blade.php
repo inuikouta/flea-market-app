@@ -2,9 +2,7 @@
 @section('title', '商品詳細')
 
 @section('css')
-    <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/partials/header.css') }}?v=2">
-    <link rel="stylesheet" href="{{ asset('css/products/show.css') }}?v=2">
+    <link rel="stylesheet" href="{{ asset('css/products/show.css') }}?v=3">
 @endsection
 
 @section('header')
@@ -25,6 +23,7 @@ $comments = [
 ?>
 
 @section('content')
+<span style="font-size: 100px">{{ $item_id }}</span>
 <div class="product-container">
     <div class="product-container__left">
         <!-- 左カラム（商品画像など） -->
@@ -51,9 +50,9 @@ $comments = [
             </div>
         </div>
        <div class="product-container__actions">
-            <button class="product-container__buy-btn">
+            <a class="product-container__buy-btn" href="{{ route('products.purchase', ['item_id' => $item_id ]) }}">
                 購入する
-            </button>
+            </a>
         </div>
         <div class="product-description">
             <h2 class="product-description__title">商品説明</h2>

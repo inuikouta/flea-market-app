@@ -5,6 +5,7 @@ use App\Http\Controllers\Product\ProductController;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Product\ProductBuyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,11 +35,18 @@ Route::middleware('auth')->group(function () {
     Route::get('/products', [ProductController::class, 'index'])->name('products.index');
 });
 
-// 商品出品画面
+// 商品関連
 Route::middleware('auth')->group(function () {
     Route::get('/sell', function () {
         return view('products.create');
     });
+});
+
+// 商品詳細画面
+Route::middleware('auth')->group(function () {
     // 商品詳細画面
     Route::get('/item/{item_id}', [ProductController::class, 'show'])->name('products.show');
+
+    // 商品購入画面
+    Route::get('/purchase/{item_id}', [ProductBuyController::class, 'purchase'])->name('products.purchase');
 });
