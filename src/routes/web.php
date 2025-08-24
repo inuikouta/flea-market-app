@@ -6,6 +6,7 @@ use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Product\ProductBuyController;
+use App\Http\Controllers\Product\ChangeAddressController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,4 +50,7 @@ Route::middleware('auth')->group(function () {
 
     // 商品購入画面
     Route::get('/purchase/{item_id}', [ProductBuyController::class, 'purchase'])->name('products.purchase');
+
+    // 送付先住所変更
+    Route::get('/purchase/address/{item_id}', [ChangeAddressController::class, 'purchase'])->name('products.change_address');
 });

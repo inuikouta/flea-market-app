@@ -39,7 +39,7 @@
         <div class="container-left__group">
             <div class="container-left__header">
                 <label class="container-left__label">配送先</label>
-                <a href="#" class="container-left__link">変更する</a>
+                <a href="{{ route('products.change_address', ['item_id' => $item_id ]) }}" class="container-left__link">変更する</a>
             </div>
             <div class="container-left__address">
                 <p class="container-left__address-line">080-1234-5678</p>
@@ -57,7 +57,8 @@
                 <td class="purchase-table__label">支払い方法</td>
                 <td class="purchase-table__value">コンビニ支払い</td>
             </tr>
-    </table>
+        </table>
+        <a href="#" class="container-right__buy-btn">購入する</a>
     </div>
 </div>
 @endsection

@@ -1,0 +1,83 @@
+.container {
+    max-width: 50%;
+    margin-inline: auto;
+}
+
+.container__title {
+    font-size: 36px;
+    font-weight: 700;
+    text-align: center;
+    margin: 60px 0 100px 0;
+}
+
+/* それぞれの項目 */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom:80px;
+}
+
+.form-group__label {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.form-group__input {
+    height: 45px;
+    font-size: 20px;
+    padding: 0 10px;
+    border: 1px solid #5F5F5F;
+    border-radius: 4px;
+}
+
+.form-group__submit-btn {
+    display: block; /* または inline-block */
+    width: 100%;
+    height: 56px;
+    margin: 100px 0 100px 0;
+    background-color: #FF5555;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none; /* リンクの下線を消す */
+    text-align: center; /* 文字を中央寄せ */
+    line-height: 56px; /* 垂直方向の中央寄せ */
+    box-sizing: border-box; /* paddingを含めた幅計算 */
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 850px) {
+    .container {
+        max-width: 70%;
+        margin-inline: auto;
+    }
+
+    .container__title {
+        font-size: 28px;
+        margin: 40px 0 60px 0;
+    }
+
+    .form-group {
+        margin-bottom: 60px;
+    }
+
+    .form-group__label {
+        font-size: 20px;
+        margin-bottom: 8px;
+    }
+
+    .form-group__input {
+        height: 40px;
+        font-size: 18px;
+    }
+
+    .form-group__submit-btn {
+        height: 50px;
+        font-size: 18px;
+        margin: 80px 0 80px 0;
+    }
+}

@@ -23,7 +23,6 @@ $comments = [
 ?>
 
 @section('content')
-<span style="font-size: 100px">{{ $item_id }}</span>
 <div class="product-container">
     <div class="product-container__left">
         <!-- 左カラム（商品画像など） -->
@@ -50,7 +49,9 @@ $comments = [
             </div>
         </div>
        <div class="product-container__actions">
-            <a class="product-container__buy-btn" href="{{ route('products.purchase', ['item_id' => $item_id ]) }}">
+            <a
+                class="product-container__buy-btn"
+                href="{{ route('products.purchase', ['item_id' => $item_id ]) }}">
                 購入する
             </a>
         </div>
