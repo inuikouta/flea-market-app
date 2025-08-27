@@ -54,3 +54,8 @@ Route::middleware('auth')->group(function () {
     // 送付先住所変更
     Route::get('/purchase/address/{item_id}', [ChangeAddressController::class, 'purchase'])->name('products.change_address');
 });
+
+// ユーザー詳細画面
+Route::middleware('auth')->group(function () {
+    Route::get('/mypage', [UserController::class, 'show'])->name('users.show');
+});

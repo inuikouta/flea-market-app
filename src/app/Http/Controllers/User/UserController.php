@@ -12,6 +12,13 @@ use Illuminate\Support\Facades\Log;
 
 class UserController extends Controller
 {
+    // ユーザー詳細画面
+    public function show()
+    {
+        $user = Auth::user(); // 例: ログインユーザー取得
+        return view('users.show', compact('user'));
+    }
+
     // プロフィール更新処理
     public function updateProfile(AddressRequest $request)
     {

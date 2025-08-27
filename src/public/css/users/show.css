@@ -1,0 +1,187 @@
+.container__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 80px 0 40px 0;
+    max-width: 60%;
+    margin-inline: auto;
+}
+
+.container__top-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: #eee;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.container__top-name {
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.container__top-btn {
+    margin-left: 200px;
+    display: inline-block;
+    padding: 10px 20px;
+    background: #ffffff;
+    color: #FF5555;
+    border : 2px solid #FF5555;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+    text-decoration: none;
+}
+
+/* タブ */
+.product__tabs {
+    border-bottom: 2px solid #5F5F5F;
+}
+
+.product__tabs__tab-buttons {
+    margin-left: 60px;
+    height: 100px;
+}
+
+.product__tabs__tab-button {
+    padding: 40px 20px;
+    font-size: 24px;
+    font-weight: 700;
+    font-family: Inter, sans-serif;
+    cursor: pointer;
+    background-color: transparent; /* 透明*/
+    border: none;
+    margin-right: 20px;
+    cursor: default;
+    pointer-events: none; /* ボタン全体はクリック不可 */
+}
+
+.product__tabs__tab-button--active {
+    color: #FF0000;
+}
+
+.product__tabs__tab-button__text {
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+/**
+ * 商品一覧のスタイル
+ */
+.product__tab-content {
+    display: none; /* 普段は隠す */
+}
+
+.product__tab-content--active {
+    display: flex; /* アクティブなタブのみ表示 */
+    flex-wrap: wrap;         /* 横がいっぱいになったら自動で折り返す！ */
+    gap: 66px;
+    padding: 66px;
+}
+
+.product-group {
+    width: calc(25% - 50px);
+    text-decoration: none;
+}
+
+.product-group__image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    background: #eee;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;    /* 横方向の中央寄せ */
+    align-items: center;        /* 縦方向の中央寄せ */
+}
+
+.product-group__image img {
+    height: 100%;        /* 高さを枠いっぱいに */
+    width: auto;         /* 横は自動（比率を保つ） */
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+}
+
+.product-group__name {
+    font-size: 20px;
+    font-weight: 400;
+    margin-top: 10px;
+    color: #000000;
+}
+
+/* 850px以下のときだけgapを変更する */
+@media (max-width: 850px) {
+    .container__top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 60px 0 20px 0;
+        max-width: 70%;
+        margin-inline: auto;
+    }
+
+    .container__top-img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        background: #eee;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 20px;
+    }
+
+    .container__top-name {
+        font-size: 26px;
+        font-weight: 700;
+    }
+
+    .container__top-btn {
+        font-size: 14px;
+        margin-left: 40px;
+        display: inline-block;
+        padding: 10px 20px;
+        background: #ffffff;
+        color: #FF5555;
+        border : 2px solid #FF5555;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: background 0.3s;
+        text-decoration: none;
+    }
+
+    .product__tabs__tab-buttons {
+        margin-left: 30px;
+        height: 80px;
+    }
+
+    .product__tabs__tab-button {
+        padding: 40px 20px;
+        font-size: 20px;
+        font-weight: 700;
+        font-family: Inter, sans-serif;
+        cursor: pointer;
+        background-color: transparent; /* 透明*/
+        border: none;
+        margin-right: 20px;
+        cursor: default;
+        pointer-events: none; /* ボタン全体はクリック不可 */
+    }
+
+    .product__tab-content--active {
+        gap: 20px;      /* ここでgapの余白を小さくする！ */
+        padding: 20px;  /* 必要ならpaddingも小さくできる */
+    }
+
+    .product-group {
+        width: calc((100% - (20px * 3)) / 4); /* gap値に合わせて幅も調整する場合 */
+    }
+}

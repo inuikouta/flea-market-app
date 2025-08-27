@@ -7,7 +7,7 @@
 @endsection
 
 @section('header')
-    @include('partials.header_auth')
+    @include('partials.header')
 @endsection
 
 @section('content')

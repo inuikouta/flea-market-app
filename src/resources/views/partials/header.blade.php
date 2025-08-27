@@ -1,5 +1,5 @@
 <header class='header'>
-    <div class="header__logo">
+    <a href="/" class="header__logo">
         <img src="{{ asset('images/header/log.png') }}" alt="Logo">
         <img src="{{ asset('images/header/vector_c.png') }}" alt="Logo c">
         <img src="{{ asset('images/header/vector_o.png') }}" alt="Logo o">
@@ -10,7 +10,10 @@
         <img src="{{ asset('images/header/vector_e.png') }}" alt="Logo e">
         <img src="{{ asset('images/header/vector_c.png') }}" alt="Logo c">
         <img src="{{ asset('images/header/vector_h.png') }}" alt="Logo h">
-    </div>
+    </a>
+    {{-- <div class="header__logo">
+    </div> --}}
+    @auth
     <div class='header__search'>
         <form action="{{ route('products.index') }}" method="GET" class="header__search__form">
             <input type="text" name="search" class="header__search__input" placeholder="なにをお探しですか？">
@@ -31,11 +34,12 @@
                 ログアウト
             </a>
         @endauth
-        <a href="#" class="header__menu__item">マイページ</a>
+        <a href="{{ route('users.show') }}" class="header__menu__item">マイページ</a>
         <a href="/sell" class="header__menu__item">
             <div class="header__menu__item__btn">
                 <span class="header__menu__item__btn__text">出品</span>
             </div>
         </a>
     </div>
+    @endauth
 </header>
