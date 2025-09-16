@@ -312,3 +312,8 @@
     border-radius: 5px;
     cursor: pointer;
 }
+
+/* いいね！アイコンの色変更用クラス */
+.favorite-colored {
+    filter: invert(39%) sepia(83%) saturate(749%) hue-rotate(329deg) brightness(91%) contrast(86%);
+}

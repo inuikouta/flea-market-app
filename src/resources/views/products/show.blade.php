@@ -15,11 +15,6 @@ $categories = [
     'fashion' => 'メンズ',
     'home' => 'レディース',
 ];
-
-// $comments = [
-//     ['user' => 'ヌイ', 'text' => 'こんにちは、売っていますか？またはこれとか売っていますか？教えてください', 'date' => '5ヶ月前'],
-//     ['user' => 'ユーザー2', 'text' => 'はい、まだありますよ！', 'date' => '4ヶ月前'],
-// ];
 ?>
 
 @section('content')
@@ -40,8 +35,15 @@ $categories = [
             </div>
             <!-- お気に入り、コメント -->
             <div class="product-container__sub-actions">
-                <button class="product-container__favorite-btn">
-                    <img src="{{ asset('images/products/icon/favorite-icon.png') }}" alt="お気に入り" class="product-container__favorite-icon">
+                <button
+                    id="favorite-btn"
+                    class="product-container__favorite-btn {{ $like ? 'active' : '' }}"
+                    data-url="{{ route('products.like', ['item_id' => $item_id ]) }}"
+                    >
+                    <img 
+                        src="{{ asset('images/products/icon/favorite-icon.png') }}"
+                        alt="お気に入り"
+                        class="product-container__favorite-icon {{ $like ? 'favorite-colored' : '' }}">
                     <span class="product-container__favorite-count">2</span>
                 </button>
                 <button class="product-container__comment-btn">

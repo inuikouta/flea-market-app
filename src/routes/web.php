@@ -8,6 +8,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Product\ProductBuyController;
 use App\Http\Controllers\Product\ChangeAddressController;
 use App\Http\Controllers\Product\CommentController;
+use App\Http\Controllers\Product\LikeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,6 +58,9 @@ Route::middleware('auth')->group(function () {
 
     // コメント投稿
     Route::post('/item/{item_id}/comments', [CommentController::class, 'store'])->name('products.comments');
+
+    // お気に入り
+    Route::post('/item/{item_id}/like', [LikeController::class, 'handleLike'])->name('products.like');
 });
 
 // ユーザー詳細画面

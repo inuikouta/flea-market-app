@@ -1,6 +1,9 @@
+const token = $('meta[name="csrf-token"]').attr('content');
+
 /**
  * コメントが投稿されたときの処理
- * 
+ * @param {void}
+ * @returns {void}
  */
 function incrementCommentCounts() {
     // ヘッダのバッジ
@@ -17,6 +20,11 @@ function incrementCommentCounts() {
     }
 }
 
+/**
+ * コメントをリストの先頭に追加する
+ * @param {Object} c コメントオブジェクト {text, user, img, created_at}
+ * @returns {void}
+ */
 function prependCommentToList(c) {
     console.log('prependCommentToList', c);
     const html = `
@@ -42,7 +50,6 @@ $('.product-comment__submit-btn').on('click', function () {
         return;
     }
 
-    const token = $('meta[name="csrf-token"]').attr('content');
     $.ajax({
         url: $form.data('url'),
         method: 'POST',
@@ -71,6 +78,38 @@ $('.product-comment__submit-btn').on('click', function () {
         error: function (xhr) {
             // エラー時の処理
             alert('コメントの投稿に失敗しました。');
+        }
+    });
+});
+
+/**
+ * いいね！ボタンがクリックされたときの処理
+ */
+$("#favorite-btn").on('click', function () {
+    $btn = $(this);
+    if ($btn.prop('disabled')) return; // 2秒間は無効化
+
+    $btn.toggleClass('active');
+    $btn.prop('disabled', true);
+
+    // いいねの背景を反転
+    $btn.find('img').toggleClass('favorite-colored');
+
+    // activeクラスが付いていればtrue（お気に入り中）、なければfalse（解除）
+    const isFavorite = $(this).hasClass('active') ? 1 : 0;
+
+    // API即時送信
+    $.ajax({
+        url: $btn.data('url'),
+        method: 'POST',
+        data: {
+            favorite: isFavorite,
+            _token: token,
+        },
+        complete: function() {
+            setTimeout(function() {
+                $btn.prop('disabled', false); // 2秒後に有効化
+            }, 1000);
         }
     });
 });
