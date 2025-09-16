@@ -24,14 +24,14 @@
 
     <!-- おすすめ商品 -->
     <div id="recommended-products" class="product__tab-content product__tab-content--active">
-        @for($i = 0; $i < 10; $i++)
-        <a href="{{ url('/item/' . $i) }}" class="product-group">
+        @foreach ($products as $product)
+        <a href="{{ url('/item/' . $product->id) }}" class="product-group">
             <div class="product-group__image">
-                <img src="https://placehold.co/300x300" alt="製品Aの外観写真（ダミー）">
+                <img src="{{ asset('storage/' . $product->image_path) }}" alt="{{ $product->name }}の外観写真">
             </div>
-            <p class="product-group__name">テスト</p>
+            <p class="product-group__name">{{ $product->name }}</p>
         </a>
-        @endfor
+        @endforeach
     </div>
     <!-- マイリスト商品 -->
     <div id="my-list-products" class="product__tab-content">

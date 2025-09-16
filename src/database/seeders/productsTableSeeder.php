@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 
 class productsTableSeeder extends Seeder
 {
@@ -14,7 +15,19 @@ class productsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('products')->truncate(); // これで全削除＆IDリセット
+        // 外部キー一時解除
+        Schema::disableForeignKeyConstraints();
+
+        // 子テーブルを先に空にする（存在するなら）
+        if (DB::getSchemaBuilder()->hasTable('product_comments')) {
+            DB::table('product_comments')->truncate();
+        }
+
+        // 親テーブルを空にする
+        DB::table('products')->truncate();
+
+        // 外部キー元に戻す
+        Schema::enableForeignKeyConstraints();
 
         DB::table('products')->insert([
             [
@@ -45,7 +58,7 @@ class productsTableSeeder extends Seeder
                 'image_path' => 'images/products/3/tamanegi.jpg',
             ],
             [
-                'user_id' => 5,
+                'user_id' => 6,
                 'name' => '革靴',
                 'brand' => 'ブランドB',
                 'price' => 4000,
@@ -54,7 +67,7 @@ class productsTableSeeder extends Seeder
                 'image_path' => 'images/products/4/boots.jpg',
             ],
             [
-                'user_id' => 5,
+                'user_id' => 7,
                 'name' => 'ノートPC',
                 'brand' => 'ブランドB',
                 'price' => 45000,
@@ -63,7 +76,7 @@ class productsTableSeeder extends Seeder
                 'image_path' => 'images/products/5/raptop.jpg',
             ],
             [
-                'user_id' => 5,
+                'user_id' => 8,
                 'name' => 'マイク',
                 'brand' => 'ブランドB',
                 'price' => 8000,

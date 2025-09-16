@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Product\ProductBuyController;
 use App\Http\Controllers\Product\ChangeAddressController;
+use App\Http\Controllers\Product\CommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,6 +54,9 @@ Route::middleware('auth')->group(function () {
 
     // 送付先住所変更
     Route::get('/purchase/address/{item_id}', [ChangeAddressController::class, 'purchase'])->name('products.change_address');
+
+    // コメント投稿
+    Route::post('/item/{item_id}/comments', [CommentController::class, 'store'])->name('products.comments');
 });
 
 // ユーザー詳細画面
