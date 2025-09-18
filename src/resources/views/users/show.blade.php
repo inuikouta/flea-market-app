@@ -50,5 +50,5 @@
 @endsection
 
 @section('js')
-<script src="{{ asset('js/users/show.js') }}?v={{ filemtime(public_path('js/users/show.js')) }}"></script>
+{{-- <script src="{{ asset('js/users/show.js') }}?v={{ filemtime(public_path('js/users/show.js')) }}"></script> --}}
 @endsection

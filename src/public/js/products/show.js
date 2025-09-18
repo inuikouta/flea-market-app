@@ -26,7 +26,6 @@ function incrementCommentCounts() {
  * @returns {void}
  */
 function prependCommentToList(c) {
-    console.log('prependCommentToList', c);
     const html = `
         <div class="product-comment__comment">
             <img class="product-comment__img" src="${c.img || 'https://placehold.co/600x600'}" alt="">
@@ -62,7 +61,6 @@ $('.product-comment__submit-btn').on('click', function () {
             _token: token,
         },
         success: function (res) {
-            alert('コメントが投稿されました。');
             console.log(res.comment.img);
             const c = res && res.comment ? res.comment : {
                 text,
@@ -87,7 +85,7 @@ $('.product-comment__submit-btn').on('click', function () {
  */
 $("#favorite-btn").on('click', function () {
     $btn = $(this);
-    if ($btn.prop('disabled')) return; // 2秒間は無効化
+    if ($btn.prop('disabled')) return; // 二重押し防止
 
     $btn.toggleClass('active');
     $btn.prop('disabled', true);
@@ -95,20 +93,25 @@ $("#favorite-btn").on('click', function () {
     // いいねの背景を反転
     $btn.find('img').toggleClass('favorite-colored');
 
-    // activeクラスが付いていればtrue（お気に入り中）、なければfalse（解除）
-    const isFavorite = $(this).hasClass('active') ? 1 : 0;
+    // いいねの反転
+    !$btn.hasClass('active');
 
     // API即時送信
     $.ajax({
         url: $btn.data('url'),
         method: 'POST',
         data: {
-            favorite: isFavorite,
+            favorite: !$btn.hasClass('active'),
             _token: token,
         },
-        complete: function() {
+        success: function (res) {
+            // 成功時の処理（必要に応じて）
+            console.log('Favorite status updated:', res);
+        },
+        complete: function () {
+            // 連打防止のため1秒間無効化
             setTimeout(function() {
-                $btn.prop('disabled', false); // 2秒後に有効化
+                $btn.prop('disabled', false); // 1秒後に有効化
             }, 1000);
         }
     });

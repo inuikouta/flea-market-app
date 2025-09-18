@@ -28,10 +28,8 @@ class UserController extends Controller
         if ($request->hasFile('profile-image')) {
             // 削除処理
             if ($user->image_path) {
-                Log::debug('削除処理');
                 // DBのicon_pathからstorage/app/public配下のパスに変換
                 $oldPath = str_replace('/storage/', '', $user->image_path);
-                Log::debug($oldPath);
                 // 画像ファイルを削除
                 Storage::disk('public')->delete($oldPath);
             }

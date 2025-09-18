@@ -37,7 +37,7 @@ class ProductController extends Controller
     public function show($item_id)
     {
         $comments = productComment::getComments($item_id);
-        // 何ヶ月前のコメントかを計算して表示する場合
+        // 何ヶ月前のコメントかを計算
         $test = $comments->map(fn($c) => $c->time_diff_for_humans = $c->created_at->diffForHumans());
 
         // お気に入り状態の取得

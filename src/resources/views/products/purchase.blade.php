@@ -13,14 +13,14 @@
 <div class="purchase-container">
     <div class="container-left">
         <div class="container-left__top-group">
-            <a href="https://placehold.co/600x200" data-lightbox="product-image" data-title="商品画像">
-                <img src="https://placehold.co/600x200" 
+            <a href="{{ asset('storage/' . $product->image_path) }}" data-lightbox="product-image" data-title="商品画像">
+                <img src="{{ asset('storage/' . $product->image_path) }}" 
                     class="container-left__image" 
                     alt="商品画像">
             </a>
             <div class="container-left__info">
-                <span class="container-left__name">商品名</span>
-                <span class="container-left__price">¥10,000</span>
+                <span class="container-left__name">{{ $product->name }}</span>
+                <span class="container-left__price">¥{{ number_format($product->price) }}</span>
             </div>
         </div>
         <div class="container-left__group">
@@ -39,11 +39,11 @@
         <div class="container-left__group">
             <div class="container-left__header">
                 <label class="container-left__label">配送先</label>
-                <a href="{{ route('products.change_address', ['item_id' => $item_id ]) }}" class="container-left__link">変更する</a>
+                <a href="{{ route('products.change_address', ['item_id' => $item_id ]) }}" id='change-address-link' class="container-left__link">変更する</a>
             </div>
             <div class="container-left__address">
-                <p class="container-left__address-line">080-1234-5678</p>
-                <p class="container-left__address-line">東京都新宿区西新宿2-8-1</p>
+                <p class="container-left__address-line">{{ $address['postal_code'] }}</p>
+                <p class="container-left__address-line">{{ $address['address'] }} {{ $address['building_name'] }}</p>
             </div>
         </div>
     </div>
@@ -51,18 +51,25 @@
         <table class="purchase-table">
             <tr class="purchase-table__row">
                 <td class="purchase-table__label">商品代金</td>
-                <td class="purchase-table__value">¥10,000</td>
+                <td class="purchase-table__value">¥{{ number_format($product->price) }}</td>
             </tr>
             <tr class="purchase-table__row">
                 <td class="purchase-table__label">支払い方法</td>
-                <td class="purchase-table__value">コンビニ支払い</td>
+                <td class="purchase-table__value purchase-table__value--payment">選択してください</td>
             </tr>
         </table>
-        <a href="#" class="container-right__buy-btn">購入する</a>
+        <a href="#" id="buy-btn" class="container-right__buy-btn">購入する</a>
     </div>
 </div>
 @endsection
 
 @section('js')
-<script src="{{ asset('js/users/purchase.js') }}"></script>
+<script src="{{ asset('js/products/purchase.js') }}?v={{ filemtime(public_path('js/products/purchase.js')) }}"></script>
+<script>
+    const userAddress = {
+        postal_code: @json(Auth::user()->postal_code),
+        address: @json(Auth::user()->address),
+        building_name: @json(Auth::user()->building_name)
+    };
+</script>
 @endsection

@@ -51,10 +51,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/item/{item_id}', [ProductController::class, 'show'])->name('products.show');
 
     // 商品購入画面
-    Route::get('/purchase/{item_id}', [ProductBuyController::class, 'purchase'])->name('products.purchase');
+    Route::get('/purchase/{item_id}', [ProductBuyController::class, 'show'])->name('products.purchase');
 
     // 送付先住所変更
-    Route::get('/purchase/address/{item_id}', [ChangeAddressController::class, 'purchase'])->name('products.change_address');
+    Route::get('/purchase/address/{item_id}', [ChangeAddressController::class, 'show'])->name('products.change_address');
+
+    Route::post('/purchase/address/{item_id}', [ChangeAddressController::class, 'update'])->name('products.change_address.update');
 
     // コメント投稿
     Route::post('/item/{item_id}/comments', [CommentController::class, 'store'])->name('products.comments');
